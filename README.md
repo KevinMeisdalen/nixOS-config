@@ -52,8 +52,9 @@ My personal NixOS dotfiles and configuration.
 
 Run these commands to sync any changes back to the repo:
 ```
-   # system
+# system
 cp /etc/nixos/configuration.nix ~/nixos-config/
+cp -r /etc/nixos/modules ~/nixos-config/
 cp ~/.zshrc ~/nixos-config/
 
 # dotconfig dirs
@@ -75,10 +76,17 @@ cp -r ~/.config/rofi       ~/nixos-config/dotconfig/
 cp -r ~/.config/waybar     ~/nixos-config/dotconfig/
 cp -r ~/.config/yazi       ~/nixos-config/dotconfig/
 cp -r ~/.config/zathura    ~/nixos-config/dotconfig/
+cp -r ~/.config/wpg        ~/nixos-config/dotconfig/
+cp -r ~/.config/wal        ~/nixos-config/dotconfig/
 
 # dotconfig files
 cp ~/.config/mimeapps.list ~/nixos-config/dotconfig/
 cp ~/.config/starship.toml ~/nixos-config/dotconfig/
+
+# custom scripts (wal-to-hypr, wal-switch)
+mkdir -p ~/nixos-config/scripts
+cp ~/.local/bin/wal-to-hypr ~/nixos-config/scripts/
+cp ~/.local/bin/wal-switch  ~/nixos-config/scripts/
 
 # git
 cd ~/nixos-config && git add . && git commit -m "update" && git push
